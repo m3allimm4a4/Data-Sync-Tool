@@ -16,6 +16,11 @@ When the user presses the `Sync` button, the application will sync the local dat
 
 The application will send a request to the server to clear the online-db. Then it will connect to the local database and fetch all the data 100 records at a time. It will then send the data to the web api and save it in the online database 100 records at a time. (To avoid the server from getting overloaded). When the sync is over the application will send an email notification to the user.
 
+### Installation
+
+- go to [a link] (https://github.com/m3allimm4a4/Data-Sync-Tool/releases/tag/sync-tool)
+- download `sync-tool-1.0.0.Setup.exe`
+
 ## web api
 
 I created a simple web api using ExpressJs and Prisma. The api is located inside `./api`. I created the online DB using prisma migrations. The schema is located inside `./api/prisma/schema.prisma`, it is identical to the offline db schema.
