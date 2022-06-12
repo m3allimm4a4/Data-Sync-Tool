@@ -18,8 +18,8 @@ The application will send a request to the server to clear the online-db. Then i
 
 ### Installation
 
-- go to [Data-Sync-Tool v1.0.0](https://github.com/m3allimm4a4/Data-Sync-Tool/releases/tag/sync-tool)
-- download `sync-tool-1.0.0.Setup.exe`
+- Go to [Data-Sync-Tool v1.0.0](https://github.com/m3allimm4a4/Data-Sync-Tool/releases/tag/sync-tool)
+- Download and install `sync-tool-1.0.0.Setup.exe`
 
 ## web api
 
