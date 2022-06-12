@@ -1,0 +1,31 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model banannatoppings {
+  id    Int    @id @default(autoincrement())
+  name  String
+  price Float
+}
+
+model orderitems {
+  id        Int    @id @default(autoincrement())
+  itemName  String
+  itemPrice Float
+  orderId   Int
+  orders    orders @relation(fields: [orderId], references: [id], onDelete: Cascade, map: "OrderItems_orderId_fkey")
+
+  @@index([orderId], map: "OrderItems_orderId_fkey")
+}
+
+model orders {
+  id           Int          @id @default(autoincrement())
+  customerName String       @db.VarChar(255)
+  total        Float        @db.Float
+  orderitems   orderitems[]
+}

@@ -1,0 +1,24 @@
+version: '3'
+services:
+  sync-api:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - PORT=5000
+  
+  online-db:
+    image: mysql
+    hostname: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "password"
+      MYSQL_DATABASE: "online-db"
+    ports:
+      - "3300:3306"
+    volumes:
+      - mysql-db:/var/lib/mysql
+
+volumes:
+  mysql-db:

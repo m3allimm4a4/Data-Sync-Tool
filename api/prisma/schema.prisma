@@ -1,0 +1,32 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model BanannaTopings {
+  id    Int    @id @default(autoincrement())
+  name  String
+  price Float
+}
+
+model Orders {
+  id           Int          @id @default(autoincrement())
+  customerName String
+  total        Float
+  orderItems   OrderItems[]
+}
+
+model OrderItems {
+  id        Int    @id @default(autoincrement())
+  itemName  String
+  itemPrice Float
+  Orders    Orders @relation(fields: [ordersId], references: [id])
+  ordersId  Int
+}
